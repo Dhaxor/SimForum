@@ -11,12 +11,15 @@
 
       <v-spacer></v-spacer>
 
-      <v-toolbar-items>
+      <div>
         <v-btn flat>Forum</v-btn>
         <v-btn flat>Ask Question</v-btn>
         <v-btn flat>Category</v-btn>
-        <v-btn flat>Login</v-btn>
-        </v-toolbar-items>
+        <router-link to="/login">
+          <v-btn flat>Login</v-btn>
+        </router-link>
+
+        </div>
     </v-toolbar>
   </v-card>
 
