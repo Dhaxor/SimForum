@@ -33,6 +33,13 @@
       >
         Login
       </v-btn>
+      <router-link to="/signup">
+          <v-btn
+        color="warning"
+        type="submit"
+
+          >Sign Up</v-btn>
+        </router-link>
     </v-container>
   </v-form>
 </template>
@@ -45,6 +52,11 @@ export default {
                email:null,
                password:null
            }
+       }
+   },
+   created(){
+       if (User.loggedIn()) {
+           this.$router.push({name:'forum'})
        }
    },
    methods:{
