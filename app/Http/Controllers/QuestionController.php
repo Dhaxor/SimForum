@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\QuestionResource;
 use App\Model\Question;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class QuestionController extends Controller
 {
@@ -37,9 +39,8 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        // auth()->user()->question()->create($request->all());
-        Question::create($request->all());
-        return response('created',201);
+        $question = auth()->user()->question()->create($request->all());
+        return response(new QuestionResource($question),Response::HTTP_CREATED);
     }
 
     /**
@@ -53,16 +54,7 @@ class QuestionController extends Controller
         return new QuestionResource($question);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Model\Question  $question
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Question $question)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.

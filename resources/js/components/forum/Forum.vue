@@ -1,10 +1,45 @@
 <template>
-    <h1>Forum</h1>
+  <v-container class="grey lighten-5">
+    <v-row no-gutters>
+      <v-col
+        cols="12"
+        sm="6"
+        md="8"
+      >
+      <question
+      v-for="question in questions"
+      :key="question.path"
+      :data=question
+      ></question>
+      </v-col>
+      <v-col
+        cols="6"
+        md="4"
+      >
+
+          Sidebar
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
+import question from './question'
 export default {
+    data(){
+        return{
+            questions:{}
+        }
+    },
 
+    components:{
+        question
+    },
+    created(){
+        axios.get('/api/question')
+        .then(res => this.questions = res.data.data)
+        .catch(error => console.log(error.response.data))
+    }
 }
 </script>
 
