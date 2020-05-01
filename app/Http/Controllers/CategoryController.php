@@ -76,7 +76,7 @@ class CategoryController extends Controller
 
                 ]
             );
-            return response('Updated', Response::HTTP_ACCEPTED);
+            return response(new CategoryResource($category), Response::HTTP_ACCEPTED);
     }
 
     /**

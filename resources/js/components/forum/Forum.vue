@@ -4,7 +4,7 @@
       <v-col
         cols="12"
         sm="6"
-        md="8"
+        md="7"
       >
       <question
       v-for="question in questions"
@@ -14,10 +14,10 @@
       </v-col>
       <v-col
         cols="6"
-        md="4"
+        md="5"
       >
 
-          Sidebar
+          <app-sidebar></app-sidebar>
       </v-col>
     </v-row>
   </v-container>
@@ -25,6 +25,7 @@
 
 <script>
 import question from './question'
+import AppSidebar from './AppSidebar'
 export default {
     data(){
         return{
@@ -33,7 +34,8 @@ export default {
     },
 
     components:{
-        question
+        question,
+        AppSidebar
     },
     created(){
         axios.get('/api/question')
