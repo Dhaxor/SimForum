@@ -6,11 +6,11 @@
             <div class="headline">
                 {{data.title}}
             </div>
-        <v-card-text class="grey--text ">{{data.user}} said {{data.created_at}}</v-card-text>
+        <v-card-text class="grey--text">{{data.user}} said {{data.created_at}}</v-card-text>
             </div>
 
         <v-spacer></v-spacer>
-        <v-btn color="teal">5 replies</v-btn>
+        <v-btn color="teal dark" dark>{{data.reply_count}} replies</v-btn>
         </v-card-title>
     <v-card-text v-html="body"></v-card-text>
       <v-card-actions v-if="own">
